@@ -134,6 +134,7 @@ public class BaseClass {
 		for (int i = 1; i < 3; i++) {
 			System.out.println(i);
 		}
+		System.out.println("Monday");
 
 	}
 
