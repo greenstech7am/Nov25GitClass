@@ -131,6 +131,9 @@ public class BaseClass {
 		System.out.println("Kannan Branch");
 		System.out.println("Kavin created branch");
 		System.out.println("Smart Skill Tech");
+		for (int i = 1; i < 3; i++) {
+			System.out.println(i);
+		}
 
 	}
 
