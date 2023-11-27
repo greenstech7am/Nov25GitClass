@@ -23,128 +23,115 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
-	
+
 	public static WebDriver driver;
-	
-	//1.
+
+	// 1.
 	public static void launchChrome() {
-		
+
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		
+
 	}
-	
-	//2.
+
+	// 2.
 	public static void winMax() {
-			driver.manage().window().maximize();
+		driver.manage().window().maximize();
 	}
-	
-	//3
+
+	// 3
 	public static void loadUrl(String url) {
 		driver.get(url);
 
 	}
-	
-	//4
+
+	// 4
 	public static void printTitle() {
 		String title = driver.getTitle();
 		System.out.println(title);
 
 	}
-	
-	//5
+
+	// 5
 	public static void printCurrentUrl() {
 		System.out.println(driver.getCurrentUrl());
 
 	}
-	
-	//6
+
+	// 6
 	public static void fill(WebElement ele, String value) {
-		
+
 		ele.sendKeys(value);
 	}
-	
-	//7
+
+	// 7
 	public static void btnClick(WebElement ele) {
-		
+
 		ele.click();
 	}
-	
-	//8
+
+	// 8
 	public static void closeChrome() {
 		driver.close();
 
 	}
-	
-	//9
-	public static String getData(int rowNumber,int cellNumber) throws IOException {
-		
-		//1. Mention ur location of ur excel file
+
+	// 9
+	public static String getData(int rowNumber, int cellNumber) throws IOException {
+
+		// 1. Mention ur location of ur excel file
 		File f = new File("C:\\Kannan\\EclipseProjects\\FrameworkBatch8thMay\\target\\TestData\\2ndMayBatch.xlsx");
-		
-		//2. Read the file
+
+		// 2. Read the file
 		FileInputStream fin = new FileInputStream(f);
-		
-		//3. Type of Workbook
+
+		// 3. Type of Workbook
 		Workbook w = new XSSFWorkbook(fin);
-		
-		//4. Get the sheet
+
+		// 4. Get the sheet
 		Sheet s = w.getSheet("greens");
-		
+
 		Row row = s.getRow(rowNumber);
-		
+
 		Cell c = row.getCell(cellNumber);
-		
+
 		int cellType = c.getCellType();
-		
+
 		String value;
-		
-		if (cellType==1) {
-			
-			value = c.getStringCellValue();		
-		}
-		else if (DateUtil.isCellDateFormatted(c)) {	
+
+		if (cellType == 1) {
+
+			value = c.getStringCellValue();
+		} else if (DateUtil.isCellDateFormatted(c)) {
 			Date d = c.getDateCellValue();
 			SimpleDateFormat sim = new SimpleDateFormat("MM-dd-yyyy");
-			value = sim.format(d);	
+			value = sim.format(d);
+		} else {
+			double d = c.getNumericCellValue(); // 7.666099973 ---->Long -----> String "7666099973";
+			// newDataType refName = (newDataType)storedValue;
+			long l = (long) d;
+			value = String.valueOf(l);
 		}
-		else {
-			double d = c.getNumericCellValue(); //7.666099973 ---->Long -----> String  "7666099973";
-			//newDataType refName = (newDataType)storedValue;
-			long l = (long)d;	
-			value = String.valueOf(l);			
-		}
-		
-		return value;	
+
+		return value;
 
 	}
-	
-	
+
 	public static void screenshot(String name) throws IOException {
-		
-		
-		TakesScreenshot tk = (TakesScreenshot)driver;
+
+		TakesScreenshot tk = (TakesScreenshot) driver;
 		File src = tk.getScreenshotAs(OutputType.FILE);
-		File des = new File("C:\\Kannan\\EclipseProjects\\Nov16ProjectClass\\target\\Screenshot\\"+name+".jpg");
+		File des = new File("C:\\Kannan\\EclipseProjects\\Nov16ProjectClass\\target\\Screenshot\\" + name + ".jpg");
 		FileUtils.copyFile(src, des);
 
 	}
-	
+
 	public static void quitChrome() {
 		driver.quit();
 		System.out.println("Kannan Branch");
+		System.out.println("Kavin created branch");
 		System.out.println("Smart Skill Tech");
 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
