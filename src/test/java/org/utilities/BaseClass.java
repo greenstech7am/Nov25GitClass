@@ -133,6 +133,7 @@ public class BaseClass {
 	public static void quitChrome() {
 		driver.quit();
 		System.out.println("Kannan Branch");
+		System.out.println("Kavin created branch");
 
 	}
 	
