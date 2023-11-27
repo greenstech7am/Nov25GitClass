@@ -134,7 +134,9 @@ public class BaseClass {
 		driver.quit();
 		System.out.println("Kannan Branch");
 		System.out.println("Kavin created branch");
-
+		for (int i = 1; i < 3; i++) {
+			System.out.println(i);	
+		}
 	}
 	
 	
