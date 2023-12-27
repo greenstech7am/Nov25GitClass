@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="10.2498">
-<testcase classname="Validate the forgotten password functionality" name="Validate the forgotten with invalid mobilenumber" time="10.2498">
-<failure message="java.lang.AssertionError: check forgot&#13;&#10;&#9;at org.junit.Assert.fail(Assert.java:88)&#13;&#10;&#9;at org.junit.Assert.assertTrue(Assert.java:41)&#13;&#10;&#9;at org.stepdefinition.ForgottenStepDefinition.userShouldNavigateToRecoverPage(ForgottenStepDefinition.java:45)&#13;&#10;&#9;at ✽.User should navigate to recover page(file:src/test/resources/FeatureFiles/Forgotten.feature:10)&#13;&#10;"><![CDATA[When User should click the forggoten password link..........................passed
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="4" time="34.098792">
+    <testcase classname="Validate the forgotten password functionality" name="Validate the forgotten with invalid mobilenumber" time="7.775254">
+        <system-out><![CDATA[When User should click the forggoten password link..........................passed
 And User should input invalid mobile number on the textbox..................passed
 And User should click the search button.....................................passed
-Then User should navigate to recover page...................................failed
-
-StackTrace:
-java.lang.AssertionError: check forgot
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.assertTrue(Assert.java:41)
-	at org.stepdefinition.ForgottenStepDefinition.userShouldNavigateToRecoverPage(ForgottenStepDefinition.java:45)
-	at ✽.User should navigate to recover page(file:src/test/resources/FeatureFiles/Forgotten.feature:10)
-]]></failure>
-</testcase>
+Then User should navigate to recover page...................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Validate the login Functionality of Facebook Page" name="Validate the login with invalid username and invalid password" time="15.854232">
+        <system-out><![CDATA[When User should input invalid username and invalid passworD in the textbox.passed
+And User should click the login button......................................passed
+And User should print the title of the page.................................passed
+And User should print the current Url of my page............................passed
+Then User should navigate to incorrect credential page......................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Validate the login Functionality of Facebook Page" name="Validate the login witn valid username and invalid password" time="5.139008">
+        <system-out><![CDATA[When User should input valid username and invalid password in the textbox...passed
+And User should click the login button......................................passed
+And User should print the current url of the page...........................passed
+And User should print the title of the page.................................passed
+Then User should navigate to incorrect credential page......................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Validate the login Functionality of Facebook Page" name="Validate the login with invalid username and valid password" time="5.330298">
+        <system-out><![CDATA[When User should input invalid username "Apple" and valid password "Green"in the textbox.passed
+And User should click the login button......................................passed
+And User should print the current url of the page...........................passed
+And User should print the title of the page.................................passed
+]]></system-out>
+    </testcase>
 </testsuite>
